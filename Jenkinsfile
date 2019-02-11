@@ -39,7 +39,7 @@ kind: Pod
 spec:
   containers:
     - name: ubuntu
-      image: ubuntu:18.04
+      image: ubuntu:${commitId}
       command:
         - cat
       tty: true
