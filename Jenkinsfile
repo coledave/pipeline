@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label "jenkins-jx-base"
+    }
     stages {
         stage('build') {
             steps {
