@@ -24,14 +24,8 @@ spec:
   stages {
     stage('Hello World') {
       steps {
-        container('ubuntu1804') {
-          sh 'pwd'
-          sh 'cat /etc/*release'
-        }
-        container('ubuntu1810') {
-          sh 'pwd'
-          sh 'cat /etc/*release'
-        }
+        sh 'pwd'
+        sh 'cat /etc/*release'
       }
     }
   }
