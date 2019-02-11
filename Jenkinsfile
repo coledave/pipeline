@@ -23,7 +23,7 @@ spec:
     stage('Hello World') {
       steps {
         container('ubuntu') {
-          sh 'ls -lah'
+          sh 'cat /etc/*release'
         }
       }
     }
