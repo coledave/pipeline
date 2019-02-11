@@ -1,4 +1,4 @@
-def awesomeVersion = '18.04'
+def awesomeVersion = '18.10'
 
 pipeline {
   agent {
