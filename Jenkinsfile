@@ -1,3 +1,5 @@
+def awesomeVersion = '18.04'
+
 pipeline {
   agent {
     kubernetes {
@@ -8,7 +10,7 @@ kind: Pod
 spec:
   containers:
     - name: ubuntu
-      image: ubuntu:18.04
+      image: ubuntu:${awesomeVersion}
       command:
         - cat
       tty: true
@@ -20,7 +22,6 @@ spec:
       steps {
         container ('ubuntu') {
           sh 'pwd'
-          sh 'echo "Hello" > world.txt'
           sh 'cat /etc/*release'
         }
       }
@@ -35,7 +36,7 @@ kind: Pod
 spec:
   containers:
     - name: ubuntu
-      image: ubuntu:18.10
+      image: ubuntu:${awesomeVersion}
       command:
         - cat
       tty: true
@@ -45,7 +46,6 @@ spec:
       steps {
         container ('ubuntu') {
           sh 'pwd'
-          sh 'ls -lah'
           sh 'cat /etc/*release'
         }
       }
