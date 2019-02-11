@@ -1,4 +1,4 @@
-def awesomeVersion = $GIT_COMMIT
+def awesomeVersion = '18.10'
 
 pipeline {
   agent {
@@ -10,7 +10,7 @@ kind: Pod
 spec:
   containers:
     - name: ubuntu
-      image: ubuntu:${awesomeVersion}
+      image: ubuntu:${env.GIT_COMMIT}
       command:
         - cat
       tty: true
