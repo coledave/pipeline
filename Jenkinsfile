@@ -14,7 +14,7 @@ kind: Pod
 spec:
   containers:
     - name: ubuntu
-      image: ubuntu:${GIT_COMMIT}
+      image: ubuntu:${branch}
       command:
         - cat
       tty: true
