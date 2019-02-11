@@ -18,8 +18,10 @@ spec:
   stages {
     stage('Hello World - Area 1') {
       steps {
-        sh 'pwd'
-        sh 'cat /etc/*release'
+        container ('ubuntu') {
+          sh 'pwd'
+          sh 'cat /etc/*release'
+        }
       }
     }
     stage('Hello World - Area 2') {
@@ -40,8 +42,10 @@ spec:
         }
       }
       steps {
-        sh 'pwd'
-        sh 'cat /etc/*release'
+        container ('ubuntu') {
+          sh 'pwd'
+          sh 'cat /etc/*release'
+        }
       }
     }
   }
