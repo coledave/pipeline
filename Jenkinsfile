@@ -21,14 +21,12 @@ spec:
   stages {
     stage('Hello World - Area 1') {
       steps {
-        container ('ubuntu') {
-          script {
-              commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
-              print commitId
-          }  
-          sh 'pwd'
-          sh 'cat /etc/*release'
-        }
+        script {
+            commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
+            print commitId
+        }  
+        sh 'pwd'
+        sh 'cat /etc/*release'
       }
     }
     stage('Hello World - Area 2') {
