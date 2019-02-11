@@ -20,6 +20,7 @@ spec:
       steps {
         container ('ubuntu') {
           sh 'pwd'
+          sh 'echo "Hello" > world.txt'
           sh 'cat /etc/*release'
         }
       }
@@ -44,6 +45,7 @@ spec:
       steps {
         container ('ubuntu') {
           sh 'pwd'
+          sh 'ls -lah'
           sh 'cat /etc/*release'
         }
       }
