@@ -11,8 +11,13 @@ metadata:
     some-label: some-label-value
 spec:
   containers:
-    - name: ubuntu
+    - name: ubuntu1804
       image: ubuntu:18.04
+      command:
+        - cat
+      tty: true
+    - name: ubuntu1810
+      image: ubuntu:18.10
       command:
         - cat
       tty: true
@@ -22,7 +27,12 @@ spec:
   stages {
     stage('Hello World') {
       steps {
-        container('ubuntu') {
+        container('ubuntu1804') {
+          sh 'pwd'
+          sh 'cat /etc/*release'
+        }
+        container('ubuntu1810') {
+          sh 'pwd'
           sh 'cat /etc/*release'
         }
       }
