@@ -1,4 +1,8 @@
+
 def awesomeVersion = '18.10'
+def branch = BRANCH_NAME
+
+print branch
 
 pipeline {
   agent {
@@ -10,7 +14,7 @@ kind: Pod
 spec:
   containers:
     - name: ubuntu
-      image: ubuntu:${env.GIT_COMMIT}
+      image: ubuntu:${GIT_COMMIT}
       command:
         - cat
       tty: true
