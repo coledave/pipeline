@@ -32,7 +32,7 @@ spec:
     stage('Hello World - Area 2') {
       agent {
         kubernetes {
-          label 'area1'
+          label 'area2'
           yaml """
 apiVersion: v1
 kind: Pod
