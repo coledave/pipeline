@@ -30,17 +30,7 @@ spec:
       agent {
         kubernetes {
           label 'area2'
-          yaml """
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-    - name: ubuntu
-      image: ubuntu:${awesomeVersion}
-      command:
-        - cat
-      tty: true
-"""
+          yamlFile 'pod.yaml'
         }
       }
       steps {
