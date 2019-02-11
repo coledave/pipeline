@@ -1,8 +1,5 @@
 
 def awesomeVersion = '18.10'
-def branch = BRANCH_NAME
-
-print branch
 
 pipeline {
   agent {
@@ -14,7 +11,7 @@ kind: Pod
 spec:
   containers:
     - name: ubuntu
-      image: ubuntu:${branch}
+      image: ubuntu:${awesomeVersion}
       command:
         - cat
       tty: true
@@ -25,6 +22,10 @@ spec:
     stage('Hello World - Area 1') {
       steps {
         container ('ubuntu') {
+          script {
+              commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
+              print commitId
+          }  
           sh 'pwd'
           sh 'cat /etc/*release'
         }
@@ -33,8 +34,18 @@ spec:
     stage('Hello World - Area 2') {
       agent {
         kubernetes {
-          label 'area2'
-          yamlFile 'pod.yaml'
+          label 'area1'
+          yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: ubuntu
+      image: ubuntu:18.04
+      command:
+        - cat
+      tty: true
+"""
         }
       }
       steps {
