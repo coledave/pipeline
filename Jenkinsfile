@@ -1,4 +1,4 @@
-def awesomeVersion = '18.10'
+def awesomeVersion = $GIT_COMMIT
 
 pipeline {
   agent {
